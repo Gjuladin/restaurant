@@ -1,38 +1,211 @@
-.App {
-  text-align: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: "Open Sans", sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.goldTxt {
+  color: #a37e2c;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.secondaryTxt {
   color: white;
+  font-size: 48px;
+}
+.mainTxt {
+  font-size: 72px;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+.background {
+  background-color: #151515;
+}
+.field-input {
+  margin-bottom: 30px;
 }
 
-@keyframes App-logo-spin {
+.field-input input,
+textarea {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #fff;
+  font-style: normal;
+  height: 50px;
+  line-height: 32px;
+  padding: 0;
+  padding-bottom: 10px;
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+}
+.field-input input,
+textarea:focus {
+  outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  color: white !important;
+}
+
+input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+label {
+  color: #fff !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white;
+}
+
+.custom-select {
+  background-color: transparent;
+  color: #fff;
+  outline: none;
+  border-radius: 5px;
+}
+
+.custom-lang-select {
+  background-color: transparent;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.specialBtn {
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 7px;
+  border: 1px solid rgb(193, 133, 59) !important;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  background: #c1853b !important;
+}
+
+.specialBtn:hover {
+  background: #c1853b !important;
+  box-shadow: 0 0 30px 5px rgba(193, 133, 59, 0.815) !important;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.specialBtn:hover::before {
+  -webkit-animation: sh02 0.5s 0s linear;
+  -moz-animation: sh02 0.5s 0s linear;
+  animation: sh02 0.5s 0s linear;
+}
+
+.specialBtn::before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 86%;
+  position: absolute;
+  top: 7%;
+  left: 0%;
+  opacity: 0;
+  background: #fff;
+  box-shadow: 0 0 50px 30px #fff;
+  -webkit-transform: skewX(-20deg);
+  -moz-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg);
+  -o-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+@keyframes sh02 {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    left: 0%;
   }
+
+  50% {
+    opacity: 1;
+  }
+
   to {
-    transform: rotate(360deg);
+    opacity: 0;
+    left: 100%;
   }
+}
+
+.specialBtn:active {
+  box-shadow: 0 0 0 0 transparent;
+  -webkit-transition: box-shadow 0.2s ease-in;
+  -moz-transition: box-shadow 0.2s ease-in;
+  transition: box-shadow 0.2s ease-in;
+}
+
+/* Submit btn */
+
+/* === removing default button style ===*/
+.buttonSub {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+/* button styling */
+.buttonSub {
+  --border-right: 6px;
+  --text-stroke-color: rgba(255, 255, 255, 0.6);
+  --animation-color: #c1853b;
+  --fs-size: 1.5em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+/* this is the text, when you hover on button */
+.hover-text {
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+}
+/* hover */
+.buttonSub:hover .hover-text {
+  width: 100%;
+  filter: drop-shadow(0 0 23px var(--animation-color));
+}
+
+.nav-link {
+  color: #fff !important;
+  font-size: 18px !important;
+}
+.nav-link.active {
+  color: #000 !important;
 }
